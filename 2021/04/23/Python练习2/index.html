@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Python练习题1 | 山下委鬼</title>
+  <title>Python练习2 | 山下委鬼</title>
 
   
     
@@ -539,7 +539,7 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/6.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/12.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0"></canvas>
@@ -547,7 +547,7 @@
     <div class="title-box">
       
           <span class="title">
-            Python练习题1
+            Python练习2
           </span>
         
     </div>
@@ -583,86 +583,517 @@
         
       </div>
       <div class="post-content">
-        <h2 id="编写一个填充用户假数据的工具库导入到Python的库中，要求如下："><a href="#编写一个填充用户假数据的工具库导入到Python的库中，要求如下：" class="headerlink" title="编写一个填充用户假数据的工具库导入到Python的库中，要求如下："></a>编写一个填充用户假数据的工具库导入到Python的库中，要求如下：</h2><br>
+        <h1 id="学生成绩管理"><a href="#学生成绩管理" class="headerlink" title="学生成绩管理"></a>学生成绩管理</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析:"></a>需求分析:</h2><br>
 
-<p><img "" class="lazyload placeholder" data-original="/2021/04/23/001/%E5%9B%BE%E7%89%871.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
-<br>
-
-<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><br>
-
-<pre><code># # -*- coding: utf-8 -*-
-import random
-import re
-
-
-class FakeUser(object):
-    # def __init__(self,name,sex):
-    #     self.name=name
-    #     self.sex=sex
-    def sui_ji_name(self):
-        with open(&quot;first_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;) as file:
-            A = file.read()
-            # A = A.split()
-            A = random.sample(A, 1)
-        with open(&quot;last_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;) as file:
-            B = file.read()
-            # B = B.split()
-            C=random.randint(1,2)
-            if C==1:
-                B = random.sample(B, 1)
-            else:
-                B = random.sample(B, 2)
-        self.name = str(A) + str(B)
-        return self.name
-
-    def sui_ji_sex(self):
-        sex = [&quot;男&quot;, &quot;女&quot;, &quot;未知&quot;]
-        self.sex = random.choice(sex)
-        return self.sex
-
-
-class SnsUser(object):
-    def sui_ji_num(self):
-        N=random.randint(1,100)
-        print(&quot;追随的数量：&#123;&#125;人&quot;.format(N))
-        for i in range(N+1):
-            print(re.sub(&quot;[,\[\]&#39; &#39;.]&quot;,&quot;&quot;,FakeUser().sui_ji_name()))
-
-def name_sex():
-    name=re.sub(&quot;[,\[\]&#39; &#39;.]&quot;,&quot;&quot;,FakeUser().sui_ji_name())
-    print(name,end = &quot; &quot;)
-    print(&quot;性别为&#123;&#125;&quot;.format(FakeUser().sui_ji_sex()))
-    SnsUser().sui_ji_num()
-
-name_sex()
-</code></pre>
-<br>
-
-<h3 id="代码结果："><a href="#代码结果：" class="headerlink" title="代码结果："></a>代码结果：</h3><br>
-
-<img "" class="lazyload placeholder" data-original="/2021/04/23/001/jiegu.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" width="200" height="350">
-
-<br>
-
-<p>……</p>
-<br>
-
-<p>&emsp;&emsp;这个带码是自行敲打，有许多的问题，因为是个新手，实现的方式比较简单，没有优化处理，因此有更好的想法可以在留言区留言。<br>&emsp;&emsp;通过分析题目，在代码中定义了两个类，分别进行随机姓名，性别的选取(FakeUser)和随机随从人数选取(SnsUser);然后定义一个函数处理两个类的信息。</p>
+<p>&emsp;&emsp;学生成绩的登记、存储、统计等式教学中常规的业务，学生成绩程序主要以学生的语文、数学、英语的成绩为蓝本，对这些成绩进行处理。</p>
 <br>
 
 <hr>
-<h2 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h2><p>&emsp;&emsp;在进行文件导入的前提是文件内容必须没有标点符号和空格，如果出现可以利用下面这个代码将文本进行格式化：<br><br></p>
-<pre><code># 进行文字处理
-import re
-A=open(&quot;last_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;)
-A=A.read()
-A=re.sub(&quot;[，,、　 。\n]&quot;,&quot;&quot;,A)
-set(A)
-print(A)
+<h2 id="系统概述"><a href="#系统概述" class="headerlink" title="系统概述:"></a>系统概述:</h2><br>
+
+<p>&emsp;&emsp;学生成绩管理程序主要对学生的语文、数学、英语成绩进行存储、排序、统计等操作，方便教师完成学生成绩的管理与分析工作。</p>
+<br>
+
+<hr>
+<h2 id="功能需求描述"><a href="#功能需求描述" class="headerlink" title="功能需求描述:"></a>功能需求描述:</h2><br>
+
+<p>学生成绩管理程序采用面向对象的程序设计方法设计，维护学生的成绩表：<br><br></p>
+<table>
+<thead>
+<tr>
+<th align="left">学号</th>
+<th align="center">姓名</th>
+<th align="center">语文</th>
+<th align="center">数学</th>
+<th align="center">英语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1001</td>
+<td align="center">AAA</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+<tr>
+<td align="left">1002</td>
+<td align="center">BBB</td>
+<td align="center">…</td>
+<td align="center">…</td>
+<td align="center">…</td>
+</tr>
+</tbody></table>
+<br>
+主要的功能有：
+<br>
+
+<ol>
+<li>增加成绩<br></li>
+</ol>
+<blockquote>
+<p>从键盘中录入每个学生的成绩，增加学生成绩记录，执行命令 insert，例如：<br><br>insert<br><br>学号：1001<br><br>姓名：xxx<br><br>语文：78<br><br>数学：67<br><br>英语：78<br></p>
+</blockquote>
+<br>
+
+<ol start="2">
+<li>修改成绩<br></li>
+</ol>
+<blockquote>
+<p>重新录入成绩，修改学生的成绩，录入的过程中如果某个字段不录入新的值就不更新该字段，执行命令 update，例如：<br><br>update<br><br>学号：1001<br><br>姓名：<br><br>语文：87<br><br>数学：<br><br>英语：<br><br>那么直修改 1001 号学生的语文成绩，其它的不修改。</p>
+</blockquote>
+<br>
+
+<ol start="3">
+<li>删除成绩<br></li>
+</ol>
+<blockquote>
+<p>录入学生的学号就删除成绩记录，执行命令 delete，例如：<br><br>delete<br><br>学号:1001</p>
+</blockquote>
+<br>
+
+<ol start="4">
+<li>导入成绩<br></li>
+</ol>
+<blockquote>
+<p>从文本文件 marks.txt 中批量导入成绩，文件的格式如下：<br><br>学号<br><br>姓名<br><br>语文<br><br>数学<br><br>英语<br><br>每个字段值占一行，成绩必须有效，程序启动时会读取该文件数据。</p>
+</blockquote>
+<br>
+
+<ol start="5">
+<li>导出成绩<br></li>
+</ol>
+<blockquote>
+<p>成绩按学号顺序导出到文件 marks.txt 中，这也是成绩存储的文件，程序结束时会把成绩保存到该文件。</p>
+</blockquote>
+<br>
+
+<ol start="6">
+<li>成绩统计<br></li>
+</ol>
+<blockquote>
+<p>程序可以统计出各个科成绩的平均值、均方差，执行命令 stat，例如：<br><br>stat</p>
+</blockquote>
+<br>
+
+<ol start="7">
+<li>分段统计<br></li>
+</ol>
+<blockquote>
+<p>程序可以统计各个分数段的人数，执行命令 range Chinese/math/English，分别按语文、数学、英语进行分段统计，例如：<br><br>range math<br><br>按数学进行分段统计。</p>
+</blockquote>
+<br>
+
+<ol start="8">
+<li>成绩排序<br><blockquote>
+<p>程序可以按各科成绩进行排序输出，执行命令 order Chinese/math/English/total，分别按语文、数学、英语、总分进行排序输出，例如：<br><br>order total<br><br>按总分排序输出。</p>
+<br></blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="程序命令设计"><a href="#程序命令设计" class="headerlink" title="程序命令设计:"></a>程序命令设计:</h2><br>
+
+<table>
+<thead>
+<tr>
+<th>程序命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>show</td>
+<td>显示学生成绩insert 插入学生成绩记录</td>
+</tr>
+<tr>
+<td>insert</td>
+<td>插入学生成绩记录</td>
+</tr>
+<tr>
+<td>update</td>
+<td>更新学生成绩记录</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除学生成绩记录</td>
+</tr>
+<tr>
+<td>stat</td>
+<td>统计学生成绩</td>
+</tr>
+<tr>
+<td>range Chinese/math/english</td>
+<td>统计各个分数段的人数，例如：Range math统计数学成绩的分数段人数</td>
+</tr>
+<tr>
+<td>order Chinese/math/emglish/total</td>
+<td>按语文、数学、英语、总分排序输出成绩，例如：order total按总分排序输出</td>
+</tr>
+</tbody></table>
+<br>
+
+<h2 id="程序代码："><a href="#程序代码：" class="headerlink" title="程序代码："></a>程序代码：</h2><pre><code># -*- coding: utf-8 -*-
+import math
+import os
+import random
+
+
+class Mark:
+    def __init__(self, no, name, chinese=0, math=0, english=0):
+        self.no = no
+        self.name = name
+        self.chinese = chinese
+        self.math = math
+        self.english = english
+
+    def show(self):
+        print(&quot;%-12s%-12s%-12d%-12d%-12d%-12d&quot; % (
+        self.no, self.name, self.chinese, self.math, self.english, self.chinese + self.math + self.english))
+
+
+class StudentMark:
+    def __init__(self):
+        self.marks = []
+
+    def insert(self, m):
+        # 插入的 m.no 希望能按 no 顺序插入
+        i = 0
+        while i &lt; len(self.marks) and self.marks[i].no &lt; m.no:
+            i = i + 1
+        if i &lt; len(self.marks) and self.marks[i].no == m.no:
+            print(m.no + &quot; already exists&quot;)
+            return
+        self.marks.insert(i, m)
+        print(&quot;插入成功&quot;)
+
+    def show(self):
+        print(&quot;%-12s%-12s%-12s%-12s%-12s%-12s&quot; % (&quot;No&quot;, &quot;Name&quot;, &quot;Chinese&quot;, &quot;Math&quot;, &quot;English&quot;, &quot;Total&quot;))
+        for m in self.marks:
+            m.show()
+        print()
+
+    def enter(self):
+        try:
+            no = input(&quot;学号:&quot;).strip()  # trim()
+            if no == &quot;&quot;:
+                raise Exception(&quot;学号不能为空&quot;)
+            name = input(&quot;姓名:&quot;).strip()
+            # if name==&quot;&quot;:
+            # raise Exception(&quot;姓名不能为空&quot;)
+            m = input(&quot;语文:&quot;).strip()
+            if m == &quot;&quot;:
+                m = &quot;0&quot;
+            m = int(m)
+            if m &lt; 0 or m &gt; 100:
+                raise Exception(&quot;无效的成绩&quot;)
+            chinese = m
+            m = input(&quot;数学:&quot;).strip()
+            if m == &quot;&quot;:
+                m = &quot;0&quot;
+            m = int(m)
+            if m &lt; 0 or m &gt; 100:
+                raise Exception(&quot;无效的成绩&quot;)
+            math = m
+            m = input(&quot;英语:&quot;).strip()
+            if m == &quot;&quot;:
+                m = &quot;0&quot;
+            m = int(m)
+            if m &lt; 0 or m &gt; 100:
+                raise Exception(&quot;无效的成绩&quot;)
+            english = m
+            m = Mark(no, name, chinese, math, english)
+            return m
+        except Exception as e:
+            print(e)
+        return None
+
+    def update(self, m):
+        for i in range(len(self.marks)):
+            if self.marks[i].no == m.no:
+                if m.name != &quot;&quot;:
+                    self.marks[i].name = m.name
+                if m.chinese &gt; 0:
+                    self.marks[i].chinese = m.chinese
+                if m.math &gt; 0:
+                    self.marks[i].math = m.math
+                if m.english &gt; 0:
+                    self.marks[i].english = m.english
+                print(&quot;更新成功&quot;)
+                return
+        print(m.no + &quot;不存在&quot;)
+
+    def delete(self, no):
+        i = 0
+        while i &lt; len(self.marks):
+            if self.marks[i].no == no:
+                del self.marks[i]
+                print(&quot;删除成功&quot;)
+                return
+            else:
+                i = i + 1
+        print(no + &quot;不存在&quot;)
+
+    def orderBy(self, course):
+        course = course.lower()
+        print(&quot;order by &quot;, course)
+        print(&quot;%-12s%-12s%-12s%-12s%-12s%-12s&quot; % (&quot;No&quot;, &quot;Name&quot;, &quot;Chinese&quot;, &quot;Math&quot;, &quot;English&quot;, &quot;Total&quot;))
+        index = []
+        for m in self.marks:
+            index.append(m)
+        for i in range(len(index)):
+            for j in range(i + 1, len(index)):
+                if course == &quot;chinese&quot;:
+                    if index[i].chinese &lt; index[j].chinese:
+                        k = index[i]
+                        index[i] = index[j]
+                        index[j] = k
+                elif course == &quot;math&quot;:
+                    if index[i].math &lt; index[j].math:
+                        k = index[i]
+                        index[i] = index[j]
+                        index[j] = k
+                elif course == &quot;english&quot;:
+                    if index[i].english &lt; index[j].english:
+                        k = index[i]
+                        index[i] = index[j]
+                        index[j] = k
+                elif course == &quot;total&quot;:
+                    if index[i].chinese + index[i].math + index[i].english &lt; index[j].chinese + index[j].math + index[
+                        j].english:
+                        k = index[i]
+                        index[i] = index[j]
+                        index[j] = k
+        for m in index:
+            m.show()
+        print()
+
+    def printChar(self, s, n):
+        print(&quot;%-12s%-6d&quot; % (s, n), end=&quot;:&quot;)
+        if len(self.marks) &gt; 0:
+            n = n * 100 // len(self.marks)
+            for i in range(n):
+                print(&quot;*&quot;, end=&quot;&quot;)
+        print()
+
+    def rangeBy(self, course):
+        global A
+        n0059 = 0
+        n6069 = 0
+        n7079 = 0
+        n8089 = 0
+        n90100 = 0
+        course = course.lower()
+        for i in range(len(self.marks)):
+            if course == &quot;chinese&quot;:
+                A = self.marks[i].chinese
+            elif course == &quot;math&quot;:
+                A = self.marks[i].math
+            elif course == &quot;english&quot;:
+                A = self.marks[i].english
+            m=A
+            if m &lt; 60:
+                n0059 += 1
+            elif m &lt; 70:
+                n6069 += 1
+            elif m &lt; 80:
+                n7079 += 1
+            elif m &lt; 90:
+                n8089 += 1
+            else:
+                n90100 += 1
+        print(course + &quot;各个分数段人数&quot;)
+        # print(&quot;[0,59]:&quot;,n0059,&quot; [60,69]:&quot;,n6069,&quot; [70,79]:&quot;,n7079,&quot; [80,89]:&quot;,n8089,&quot; [90,100]:&quot;,n90100)
+        self.printChar(&quot;[0,59]&quot;, n0059)
+        self.printChar(&quot;[60,69]&quot;, n6069)
+        self.printChar(&quot;[70,79]&quot;, n7079)
+        self.printChar(&quot;[80,89]&quot;, n8089)
+        self.printChar(&quot;[90,100]&quot;, n90100)
+        print()
+
+    def statistics(self):
+        if len(self.marks) == 0:
+            return
+        ca = 0
+        cs = 0
+        ma = 0
+        ms = 0
+        ea = 0
+        es = 0
+        for m in self.marks:
+            ca += m.chinese
+            cs += m.chinese * m.chinese
+            ma += m.math
+            ms += m.math * m.math
+            ea += m.english
+            es += m.english * m.english
+        ca = ca / len(self.marks)
+        cs = math.sqrt(cs / len(self.marks) - ca * ca)
+        ma = ma / len(self.marks)
+        ms = math.sqrt(ms / len(self.marks) - ma * ma)
+        ea = ea / len(self.marks)
+        es = math.sqrt(es / len(self.marks) - ea * ea)
+        print(&quot;语文平均分:%.2f 语文均方差:%.2f&quot; % (ca, cs))
+        print(&quot;数学平均分:%.2f 数学均方差:%.2f&quot; % (ma, ms))
+        print(&quot;英语平均分:%.2f 英语均方差:%.2f&quot; % (ea, es))
+        print()
+
+    def saveMarks(self):
+        try:
+            fobj = open(&quot;marks.txt&quot;, &quot;wt&quot;)
+            for m in self.marks:
+                fobj.write(m.no + &quot;\n&quot;)
+                fobj.write(m.name + &quot;\n&quot;)
+                fobj.write(str(m.chinese) + &quot;\n&quot;)
+                fobj.write(str(m.math) + &quot;\n&quot;)
+                fobj.write(str(m.english) + &quot;\n&quot;)
+            fobj.close()
+        except Exception as e:
+            print(e)
+
+    def readMarks(self):
+        self.marks = []
+        if not os.path.exists(&quot;marks.txt&quot;):
+            return
+        try:
+            fobj = open(&quot;marks.txt&quot;, &quot;rt&quot;)
+            while True:
+                try:
+                    no = fobj.readline().strip(&quot;\n&quot;)
+                    if no == &quot;&quot;:
+                        break
+                    name = fobj.readline().strip(&quot;\n&quot;)
+                    m = fobj.readline().strip(&quot;\n&quot;)
+                    m = int(m)
+                    if m &lt; 0 or m &gt; 100:
+                        raise Exception(&quot;无效成绩&quot;)
+                    chinese = m
+                    m = fobj.readline().strip(&quot;\n&quot;)
+                    m = int(m)
+                    if m &lt; 0 or m &gt; 100:
+                        raise Exception(&quot;无效成绩&quot;)
+                    math = m
+                    m = fobj.readline().strip(&quot;\n&quot;)
+                    m = int(m)
+                    if m &lt; 0 or m &gt; 100:
+                        raise Exception(&quot;无效成绩&quot;)
+                    english = m
+                    self.marks.append(Mark(no, name, chinese, math, english))
+                except Exception as ea:
+                    print(ea)
+            fobj.close()
+        except Exception as eb:
+            print(eb)
+
+    def process(self):
+        self.readMarks()
+        while True:
+            s = input(&quot;&gt;&quot;)
+            s = s.lower()
+            s = s.split(&quot; &quot;)
+            if s[0] == &quot;show&quot;:
+                self.show()
+            elif s[0] == &quot;order&quot;:
+                if len(s) &gt; 1:
+                    self.orderBy(s[1])
+                else:
+                    print(&quot;格式示范: order chinese&quot;)
+            elif s[0] == &quot;insert&quot;:
+                m = self.enter()
+                if m:
+                    self.insert(m)
+            elif s[0] == &quot;update&quot;:
+                print(&quot;提示:不输入直接回车的字段不更新&quot;)
+                m = self.enter()
+                if m:
+                    self.update(m)
+            elif s[0] == &quot;delete&quot;:
+                no = input(&quot;学号:&quot;).strip()
+                if no != &quot;&quot;:
+                    self.delete(no)
+                else:
+                    print(&quot;学号不能为空&quot;)
+            elif s[0] == &quot;range&quot;:
+                if len(s) &gt; 1:
+                    self.rangeBy(s[1])
+                else:
+                    print(&quot;格式示范: range chinese&quot;)
+            elif s[0] == &quot;stat&quot;:
+                self.statistics()
+            elif s[0] == &quot;exit&quot;:
+                break
+            else:
+                print(&quot;有效的命令:&quot;)
+                print(&quot;show&quot;)
+                print(&quot;insert&quot;)
+                print(&quot;update&quot;)
+                print(&quot;delete&quot;)
+                print(&quot;stat&quot;)
+                print(&quot;order chinese/math/english/total&quot;)
+                print(&quot;range chinese/math/english&quot;)
+                print(&quot;exit&quot;)
+        self.saveMarks()
+
+    def createMarks(self):
+        n = random.randint(10, 20)
+        self.marks = []
+        for i in range(n):
+            s = str(i + 1)
+            while len(s) &lt; 5:
+                s = &quot;0&quot; + s
+            name = chr(ord(&quot;a&quot;) + random.randint(0, 26))
+            chinese = random.randint(0, 100)
+            math = random.randint(0, 100)
+            english = random.randint(0, 100)
+            self.marks.append(Mark(s, name, chinese, math, english))
+            with open(&quot;marks.txt&quot;, &quot;w&quot;) as File:
+                A = File.write(str(self.marks))
+
+
+sm = StudentMark()
+
+print(&quot;请确定自己是否随机获取数据（默认没有数据，随机之后数据重新刷新，原来数据不存在，请慎重！&quot;)
+N = input(&quot;是否确定yes/其他:&quot;).lower()
+if N == &quot;yes&quot;:
+    sm.createMarks()
+    sm.saveMarks()
+sm.process()
 </code></pre>
 <br>
 
-<p>&emsp;&emsp;利用正则表达式re的re.sub将文件中的标点字符替换为空，如果需要更多的替换可在”[，,、　 。\n]”内进行添加需要替换的标点字符，这是实现开头代码的前提，是非常重要的。</p>
+<h2 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h2><br>
+
+<p>show：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/show.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>insert：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/insert1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<br>
+
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/insert2.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>update：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/update1.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<br>
+
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/update2.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>delete：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/delete.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>stat：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/stat.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>range：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/range.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<p>order：<br></p>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/order.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "><br><br></p>
+<hr>
+<br>
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a><strong>最后</strong></h2><br>
+
+<p><strong>&emsp;&emsp;还有许多的功能在这里没有展示，需要自己探索,只有不断的探索，才会有更多的收获！</strong></p>
+<br>
+
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/Python%E7%BB%83%E4%B9%A02/jieyv.jpg" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt=" "></p>
+<br>
+
+<br>
+
+<hr>
 
       </div>
       
@@ -673,7 +1104,7 @@ print(A)
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/04/23/001/" target="_blank" title="Python练习题1">http://sxwg.github.io/2021/04/23/001/</a>
+    <a href="/2021/04/23/Python练习2/" target="_blank" title="Python练习2">http://sxwg.github.io/2021/04/23/Python练习2/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -691,17 +1122,18 @@ print(A)
 
 
 
+
+
   
-  <div class="post-nav-prev post-nav-item">
+  <div class="post-nav-next post-nav-item">
     <div class="post-nav-img lazyload" data-original="/medias/13.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
     <a href="/2021/04/23/%E7%AE%80%E5%8E%86/" class="post-nav-link">
       <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
+        下一篇: <i class="fa fa-angle-right"></i>
         <div>个人简历</div>
       </div>
-      
       <!-- <div class="content">
         个人简历
 
@@ -713,24 +1145,6 @@ print(A)
 
 姓名：韦 X X
 电话：191****
-      </div> -->
-    </a>
-  </div>
-
-
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
-      background-position: center center;">
-    </div>
-    <a href="/2021/04/22/hello-world/" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fa fa-angle-right"></i>
-        <div>Hello World</div>
-      </div>
-      <!-- <div class="content">
-        Welcome to Hexo! This is your very first post. Check documen
       </div> -->
     </a>
   </div>
