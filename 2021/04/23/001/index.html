@@ -10,7 +10,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Hello World | 山下委鬼</title>
+  <title>1 | 山下委鬼</title>
 
   
     
@@ -539,7 +539,7 @@
 
 
 
-<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/7.jpg" style="background-repeat: no-repeat; background-size: cover; 
+<div class="post-detail-header lazyload" id="thumbnail_canvas" data-original="/medias/5.jpg" style="background-repeat: no-repeat; background-size: cover; 
   background-position: center center;position: relative;">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0"></canvas>
@@ -547,7 +547,7 @@
     <div class="title-box">
       
           <span class="title">
-            Hello World
+            1
           </span>
         
     </div>
@@ -566,27 +566,104 @@
       
       <div class="post-meta">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        <span class="post-time">2021-04-22</span>
+        <span class="post-time">2021-04-23</span>
       </div>
       
       <div class="post-tags-categories">
         
+        <div class="tags">
+          <i class="iconfont icontag"></i>
+          
+            <a href="/tags/Python/" class="">
+              Python
+            </a>
+          
+        </div>
+        
         
       </div>
       <div class="post-content">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <hr>
+<h2 id="title-Python练习1"><a href="#title-Python练习1" class="headerlink" title="title: Python练习1"></a>title: Python练习1</h2><h2 id="编写一个填充用户假数据的工具库导入到Python的库中，要求如下："><a href="#编写一个填充用户假数据的工具库导入到Python的库中，要求如下：" class="headerlink" title="编写一个填充用户假数据的工具库导入到Python的库中，要求如下："></a>编写一个填充用户假数据的工具库导入到Python的库中，要求如下：</h2><br>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p><img "" class="lazyload placeholder" data-original="/2021/04/23/001/%E5%9B%BE%E7%89%871.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" alt="title"></p>
+<br>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h3><br>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<pre><code># # -*- coding: utf-8 -*-
+import random
+import re
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+class FakeUser(object):
+    # def __init__(self,name,sex):
+    #     self.name=name
+    #     self.sex=sex
+    def sui_ji_name(self):
+        with open(&quot;first_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;) as file:
+            A = file.read()
+            # A = A.split()
+            A = random.sample(A, 1)
+        with open(&quot;last_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;) as file:
+            B = file.read()
+            # B = B.split()
+            C=random.randint(1,2)
+            if C==1:
+                B = random.sample(B, 1)
+            else:
+                B = random.sample(B, 2)
+        self.name = str(A) + str(B)
+        return self.name
+
+    def sui_ji_sex(self):
+        sex = [&quot;男&quot;, &quot;女&quot;, &quot;未知&quot;]
+        self.sex = random.choice(sex)
+        return self.sex
+
+
+class SnsUser(object):
+    def sui_ji_num(self):
+        N=random.randint(1,100)
+        print(&quot;追随的数量：&#123;&#125;人&quot;.format(N))
+        for i in range(N+1):
+            print(re.sub(&quot;[,\[\]&#39; &#39;.]&quot;,&quot;&quot;,FakeUser().sui_ji_name()))
+
+def name_sex():
+    name=re.sub(&quot;[,\[\]&#39; &#39;.]&quot;,&quot;&quot;,FakeUser().sui_ji_name())
+    print(name,end = &quot; &quot;)
+    print(&quot;性别为&#123;&#125;&quot;.format(FakeUser().sui_ji_sex()))
+    SnsUser().sui_ji_num()
+
+name_sex()
+</code></pre>
+<br>
+
+<h3 id="代码结果："><a href="#代码结果：" class="headerlink" title="代码结果："></a>代码结果：</h3><br>
+
+<img "" class="lazyload placeholder" data-original="/2021/04/23/001/jiegu.png" src="https://img10.360buyimg.com/ddimg/jfs/t1/157667/29/9156/134350/603c6445Ebbc9cabe/41219c5d36d45072.gif" width="200" height="350" align="center">
+
+<br>
+
+<p>……</p>
+<br>
+
+<p>&emsp;&emsp;这个带码是自行敲打，有许多的问题，因为是个新手，实现的方式比较简单，没有优化处理，因此有更好的想法可以在留言区留言。<br>&emsp;&emsp;通过分析题目，在代码中定义了两个类，分别进行随机姓名，性别的选取(FakeUser)和随机随从人数选取(SnsUser);然后定义一个函数处理两个类的信息。</p>
+<br>
+
+<hr>
+<h2 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h2><p>&emsp;&emsp;在进行文件导入的前提是文件内容必须没有标点符号和空格，如果出现可以利用下面这个代码将文本进行格式化：<br><br></p>
+<pre><code># 进行文字处理
+import re
+A=open(&quot;last_name.txt&quot;, &quot;r&quot;,encoding=&quot;utf-8&quot;)
+A=A.read()
+A=re.sub(&quot;[，,、　 。\n]&quot;,&quot;&quot;,A)
+set(A)
+print(A)
+</code></pre>
+<br>
+
+<p>&emsp;&emsp;利用正则表达式re的re.sub将文件中的标点字符替换为空，如果需要更多的替换可在”[，,、　 。\n]”内进行添加需要替换的标点字符，这是实现开头代码的前提，是非常重要的。</p>
 
       </div>
       
@@ -597,7 +674,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2021/04/22/hello-world/" target="_blank" title="Hello World">http://sxwg.github.io/2021/04/22/hello-world/</a>
+    <a href="/2021/04/23/001/" target="_blank" title="1">http://sxwg.github.io/2021/04/23/001/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -615,30 +692,23 @@
 
 
 
+
+
   
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img lazyload" data-original="/medias/5.jpg" style="background-size: cover; 
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img lazyload" data-original="/medias/7.jpg" style="background-size: cover; 
       background-position: center center;">
     </div>
-    <a href="/2021/04/23/001/" class="post-nav-link">
+    <a href="/2021/04/22/hello-world/" class="post-nav-link">
       <div class="title">
-        <i class="fa fa-angle-left"></i> 上一篇:
-        <div>1</div>
+        下一篇: <i class="fa fa-angle-right"></i>
+        <div>Hello World</div>
       </div>
-      
       <!-- <div class="content">
-        
-title: Python练习1编写一个填充用户假数据的工具库导入到Python的库中，要求如下：
-
-
-
-
-代码实现：
+        Welcome to Hexo! This is your very first post. Check documen
       </div> -->
     </a>
   </div>
-
-
 
 </div>
 
